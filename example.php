@@ -4,6 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Kronocharts Example</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+                <link rel="shortcut icon" href="static/img/fluke.ico" />
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
