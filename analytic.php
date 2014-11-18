@@ -1,72 +1,29 @@
-<!DOCTYPE html>
-<html lang="de">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Kronocharts Example</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-                <link rel="shortcut icon" href="static/img/fluke.ico" />
-                <link href="static/css/bootstrap.min.css" rel="stylesheet">
-		<!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link href="static/css/styles.css" rel="stylesheet">
-                <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.min.css">
-                <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-                <script type="text/javascript">
-                    <?php include 'DataSource.php';
- function replace($text) {
-    $searchReplaceArray = array(
-        ';' => ',',
-        'OL' => '0',
-    );
-    
-    $result = str_replace(
-            array_keys($searchReplaceArray), 
-            array_values($searchReplaceArray),  
-            str_replace(',', '.', $text));
-    return $result;
- }
+<?php 
+include 'func/base.php';
+include 'class/DataSource.php';
+
+
  function getData()
  {
-    $csv = new File_CSV_DataSource();
+    $files = $_POST["check"];
+    foreach ($files as $file) {
+        $csv = new File_CSV_DataSource();
  
-    // tell the object to parse a specific file
-     if ($csv->load('csv/u-netz.csv')) {
-         $csv->getHeaders();
-       
-        
-        return implode(';', $csv->getColumn('Max '));
-     }
+        // tell the object to parse a specific file
+        if ($csv->load($file)) {
+             $csv->getHeaders();
+            return implode(';', $csv->getColumn('Max '));
+        }
+    }
  }
 $data = getData();
 
-function getData1()
- {
-    $csv = new File_CSV_DataSource();
-    // tell the object to parse a specific file
-     if ($csv->load('csv/u-motor.csv')) {
-         $csv->getHeaders();
-       
-        
-        return implode(';', $csv->getColumn('Max '));
-     }
- }
-$data1 = getData1();
-
-function getData2()
- {
-    $csv = new File_CSV_DataSource();
- 
-    // tell the object to parse a specific file
-     if ($csv->load('csv/L1.csv')) {
-         $csv->getHeaders();
-       
-        
-        return implode(';', $csv->getColumn('Max '));
-     }
- }
-$data2 = getData2();
 ?>
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <?=getHeader();?>
+        <script type="text/javascript">
 $(function () {
     $('#container').highcharts({
         chart: {
@@ -121,22 +78,19 @@ $(function () {
             {
             type: 'area',
             name: 'U-MOTOR',
-            data: [<?php echo replace($data1) ?>]
+            data: [<?php ?>]
         },
             {
             type: 'area',
             name: 'L1',
-            data: [<?php echo replace($data2) ?>]
+            data: [<?php ?>]
         }]
     });
     
 });
 		</script>
-
-	</head>
+    </head>
 <body>
-<script src="highcharts-4.0.4/js/highcharts.js"></script>
-<script src="highcharts-4.0.4/js/modules/exporting.js"></script>
 <div class="wrapper">
     <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">
@@ -144,22 +98,42 @@ $(function () {
           
             <!-- sidebar -->
             <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
-              
-              	<ul class="nav">
-          			<li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                <ul class="nav">
+                    <li>
+                        <a href="#" data-toggle="offcanvas" class="visible-xs text-center">
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </a>
+                    </li>
             	</ul>
-               
                 <ul class="nav hidden-xs" id="lg-menu">
+                    <li class="active">
+                        <a href="/">
+                            <i class="fa fa-th-list"></i> Übersicht
+                        </a>
+                    </li>
                 </ul>
-                
-                <!-- tiny only nav-->
-              <ul class="nav visible-xs" id="xs-menu">
-                  	<li><a href="#featured" class="text-center"><i class="glyphicon glyphicon-list-alt"></i></a></li>
-                    <li><a href="#stories" class="text-center"><i class="glyphicon glyphicon-list"></i></a></li>
-                  	<li><a href="#" class="text-center"><i class="glyphicon glyphicon-paperclip"></i></a></li>
-                    <li><a href="#" class="text-center"><i class="glyphicon glyphicon-refresh"></i></a></li>
+                <ul class="nav visible-xs" id="xs-menu">
+                    <li>
+                        <a href="#featured" class="text-center">
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stories" class="text-center">
+                            <i class="glyphicon glyphicon-list"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-center">
+                            <i class="glyphicon glyphicon-paperclip"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-center">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                    </li>
                 </ul>
-              
             </div>
             <!-- /sidebar -->
           

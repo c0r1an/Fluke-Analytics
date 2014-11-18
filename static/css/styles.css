@@ -155,9 +155,12 @@ hr {
     padding:0px;
 	padding-top:15px;
 }
-
-#sidebar, #sidebar a, #sidebar-footer a {
-    color:#ffffff;
+#sidebar a,#sidebar a:hover, #sidebar-footer a {
+    color:#000;
+    background-color: transparent;
+}
+#sidebar {
+    color:#000;
     background: #8A8A8A;
     background: -moz-linear-gradient(left, #8A8A8A 93%, #6A6867 100%);
     background: -webkit-gradient(linear, left top, right top, color-stop(93%, #8A8A8A), color-stop(100%, #6A6867));
@@ -165,11 +168,9 @@ hr {
     background: -o-linear-gradient(left, #8A8A8A 93%, #6A6867 100%);
     background: -ms-linear-gradient(left, #8A8A8A 93%, #6A6867 100%);
     background: linear-gradient(to right, #8A8A8A 93%, #6A6867 100%);
-	text-shadow:0 0 2px #000000;
-    padding-left:5px;
 }
-#sidebar .nav li>a:hover {
-    background-color:#393939;
+#sidebar .nav {
+    margin-top: 17px ;
 }
 
 .logo {
