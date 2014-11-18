@@ -4,11 +4,12 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Kronocharts Example</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+                <link href="static/css/bootstrap.min.css" rel="stylesheet">
+                <link rel="shortcut icon" href="static/img/fluke.ico" />
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/styles.css" rel="stylesheet">
+		<link href="static/css/styles.css" rel="stylesheet">
                 <link rel="stylesheet" href="font-awesome-4.2.0/css/font-awesome.min.css">
                 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
                 <script type="text/javascript">
