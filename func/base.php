@@ -1,5 +1,5 @@
 <?php
-
+include 'class/DataSource.php';
 function scan() 
 {
     $files = array();
@@ -42,3 +42,22 @@ function replace($text) {
     return $result;
  }
  
+ function getData($data)
+ {
+    $files = $data;
+    $html = '';
+    foreach ($files as $file => $value) {
+        $csv = new File_CSV_DataSource();
+ 
+        // tell the object to parse a specific file
+        if ($csv->load($value)) {
+             $csv->getHeaders();
+             $html .= "{
+            type: 'area',
+            name: '".str_replace('csv/', '', $value)."',
+            data: [".  replace(implode(';', $csv->getColumn('Max ')))."]
+        },";
+        }
+    }
+    return $html;
+ }

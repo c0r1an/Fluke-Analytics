@@ -12,7 +12,7 @@
                 <ul class="nav">
                     <li>
                         <a href="#" data-toggle="offcanvas" class="visible-xs text-center">
-                            <i class="glyphicon glyphicon-chevron-right"></i>
+                            <i class="fa fa-bars"></i>
                         </a>
                     </li>
             	</ul>
@@ -25,23 +25,8 @@
                 </ul>
                 <ul class="nav visible-xs" id="xs-menu">
                     <li>
-                        <a href="#featured" class="text-center">
-                            <i class="glyphicon glyphicon-list-alt"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#stories" class="text-center">
-                            <i class="glyphicon glyphicon-list"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-center">
-                            <i class="glyphicon glyphicon-paperclip"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="text-center">
-                            <i class="glyphicon glyphicon-refresh"></i>
+                        <a href="/">
+                            <i class="fa fa-th-list"></i>
                         </a>
                     </li>
                 </ul>
@@ -65,7 +50,7 @@
                                             <?php $files = scan();
                                                 foreach ($files as $file) {
                                                     echo '<tr><td><input name="check[]" type="checkbox" value="'.$file.'"/></td>
-                                                        <td>'.$file.'</td></tr>';
+                                                        <td>'.str_replace('csv/', '', $file).'</td></tr>';
                                                 }
                                             ?>
                                         </tbody>

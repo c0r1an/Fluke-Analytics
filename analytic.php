@@ -1,23 +1,5 @@
 <?php 
 include 'func/base.php';
-include 'class/DataSource.php';
-
-
- function getData()
- {
-    $files = $_POST["check"];
-    foreach ($files as $file) {
-        $csv = new File_CSV_DataSource();
- 
-        // tell the object to parse a specific file
-        if ($csv->load($file)) {
-             $csv->getHeaders();
-            return implode(';', $csv->getColumn('Max '));
-        }
-    }
- }
-$data = getData();
-
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -70,21 +52,7 @@ $(function () {
             }
         },
 
-        series: [{
-            type: 'area',
-            name: 'U-NETZ',
-            data: [<?php echo replace($data) ?>]
-        },
-            {
-            type: 'area',
-            name: 'U-MOTOR',
-            data: [<?php ?>]
-        },
-            {
-            type: 'area',
-            name: 'L1',
-            data: [<?php ?>]
-        }]
+        series: [<?=getData($_POST["check"])?>]
     });
     
 });
