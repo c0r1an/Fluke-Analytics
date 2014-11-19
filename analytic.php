@@ -110,6 +110,9 @@ $(function () {
                 
                 <!-- top nav -->
               	<div class="navbar navbar-blue navbar-static-top">  
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Kronocharts Example</a>
+                    </div>
                 </div>
                 <!-- /top nav -->
               

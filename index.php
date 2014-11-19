@@ -22,6 +22,11 @@
                             <i class="fa fa-th-list"></i> Übersicht
                         </a>
                     </li>
+                    <li class="">
+                        <a href="#postModal" role="button" class="btn" data-toggle="modal">
+                            <i class="fa fa-upload"></i> Upload
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav visible-xs" id="xs-menu">
                     <li>
@@ -33,6 +38,9 @@
             </div>
             <div class="column col-sm-10 col-xs-11" id="main">
                 <div class="navbar navbar-blue navbar-static-top">  
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">Kronocharts Example</a>
+                    </div>
                 </div>
                 <div class="padding">
                     <div class="full col-sm-9">
@@ -56,7 +64,7 @@
                                         </tbody>
                                     </table>
                                     <div class="content_savebox">
-                                        <button onclick="submitForm();" value="auswahl" type="submit" name="auswahl" class="btn">
+                                        <button onclick="submitForm();" value="auswahl" type="submit" name="auswahl" class="btn btn-sub">
                                             Auswählen
                                         </button>
                                     </div>
@@ -75,35 +83,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			Update Status
+			Upload
             </div>
             <div class="modal-body">
                 <form class="form center-block">
                     <div class="form-group">
-                        <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+                        <textarea class="form-control input-lg" autofocus="" placeholder="TO DO create upload"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <div>
                     <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-                    <ul class="pull-left list-inline">
-                        <li>
-                            <a href="">
-                                <i class="glyphicon glyphicon-upload"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="glyphicon glyphicon-camera"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <i class="glyphicon glyphicon-map-marker"></i>
-                            </a>
-                        </li>
-                    </ul>
                 </div>	
             </div>
         </div>

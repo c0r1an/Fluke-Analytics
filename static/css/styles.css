@@ -27,8 +27,13 @@ html, body {
 }
 .btn {
     background-image: none;
+}
+.btn-sub {
+    background-image: none;
     border: 1px solid #C0C0C0;
-    border-radius: 0px;
+}
+#sidebar > ul > li a {
+    text-align: left;
 }
 #sidebar > ul > li.active {
     background: #C9C9C9;
@@ -55,7 +60,9 @@ html, body {
    font-family:Arial,sans-serif;
    font-size:13px;
 }
-
+.navbar-brand {
+    color: #fff !important;
+}
 a {
   color:#222222;
 }
