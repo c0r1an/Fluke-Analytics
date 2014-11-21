@@ -1,4 +1,7 @@
-<?php include 'func/base.php';?>
+<?php 
+session_start(); 
+include 'func/base.php';
+?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
@@ -46,6 +49,16 @@
                     <div class="full col-sm-9">
                         <div class="row">
                             <div class="col-sm-12">
+                                <?php 
+                                    if(!empty($_SESSION['output-false'])){
+                                        echo '<div class="alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'.$_SESSION['output-false'].'</div>';
+                                        session_unset();
+                                    }
+                                    if(!empty($_SESSION['output-true'])){
+                                        echo '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>'.$_SESSION['output-true'].'</div>';
+                                        session_unset();
+                                    }
+                                ?>
                                 <form method="post" name="myform" action="analytic.php" >
                                     <table class="table table-bordered">
                                         <thead>
@@ -86,16 +99,14 @@
 			Upload
             </div>
             <div class="modal-body">
-                <form class="form center-block">
-                    <div class="form-group">
-                        <textarea class="form-control input-lg" autofocus="" placeholder="TO DO create upload"></textarea>
-                    </div>
+                <form class="well" action="func/base.php" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label for="file">Select a csv file to upload</label>
+                    <input type="file" name="file">
+                    <p class="help-block">Only csv file.</p>
+                  </div>
+                    <input type="submit" class="btn btn-lg btn-primary" value="Upload" name="upload">
                 </form>
-            </div>
-            <div class="modal-footer">
-                <div>
-                    <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-                </div>	
             </div>
         </div>
     </div>
